@@ -46,24 +46,24 @@
         </div>
       </div>
    
-
-      <script src="server1.js" type="text/javascript"></script>
+      <script type="text/javascript">
+        
+        $("#submit").on("click", function(e){
+          e.preventDefault()
+          let newReseration = {
+            customerID: $("#id").val().trim(),
+            customerName: $("#name").val().trim(),
+            eMail: $("#email").val().trim(),
+            phone: $("#number").val().trim()
+          }
+          $.post("/reserve", newReservation)
+            .then(function(data){
+              console.log("reserve.html", data)
+            })
+        });
+      </script>
+    
     
 </body>
 </html>
 
-
-<!--
-${"#submit"}on.("click", function(e){
-  e.preventDefault()
-  let newReseration = [{
-    customerID= ${'#id'}.val()
-    customerName: ${'#name'}.val()
-    eMail: ${'#email'}.val()
-    phone: $('#number').val()
-  }]
-})
-
-
-
--->
